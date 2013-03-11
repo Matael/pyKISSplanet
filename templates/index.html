@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<header>
+			<h1>PyKISSPlanet</h1>
+		</header>
+
+		<section id="links">
+		<ul>
+			{% for a in links %}
+			<li><a href="{{a.url}}">{{a.title|capfirst}}</a> @ <a href="{{a.source}}">{{a.source}}</a></li>
+			{% endfor %}
+		</ul>
+		</section>
+
+		<footer>
+			<p id="legal">2013 & MIT Licence -- PyKISSPlanet -- Mathieu (matael) Gaborit</p>
+		</footer>
+	</body>
+</html>
+

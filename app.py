@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+# -*- coding:utf8 -*-
 """
 This use mini_django.py, sort of micro framework based on django.
 """

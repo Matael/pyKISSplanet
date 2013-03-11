@@ -2,6 +2,8 @@
 Django in single file with model and admin. Based on:-
 
 http://fahhem.com/blog/2011/10/django-models-without-apps-or-everything-django-truly-in-a-single-file/
+
+I found it here : https://gist.github.com/k4ml/2221909
 """
 import sys
 from os import path as osp

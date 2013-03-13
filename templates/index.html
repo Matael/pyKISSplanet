@@ -2,23 +2,28 @@
 <html>
 	<head>
         <meta charset="utf-8" />
-		<title></title>
+		<title>Py [K.I.S.S.] Planet</title>
+
+		<link rel="stylesheet/less" type="text/css" href="/static/main.less">
+		<script type="text/javascript" src="/static/less-1.3.3.min.js"></script>
 	</head>
 	<body>
 		<header>
-			<h1>PyKISSPlanet</h1>
+			<h1>Py [K.I.S.S.] Planet</h1>
 		</header>
 
-		<section id="links">
-		<ul>
+		<section id=links>
 			{% for a in links %}
-			<li><a href="{{a.url}}">{{a.title|capfirst}}</a> @ <a href="{{a.source}}">{{a.source}}</a></li>
+			<article>
+				<h3><a href="{{a.url}}">{{a.title|capfirst}}</a> <span class=source>{{a.source}}</span></h3>
+				<p class=summary> {{a.summary|capfirst}} </p>
+				<p class=read_more><a href="{{a.url}}">Read more ></a></p>
+			</article>
 			{% endfor %}
-		</ul>
 		</section>
 
 		<footer>
-			<p id="legal">2013 & MIT Licence -- PyKISSPlanet -- Mathieu (matael) Gaborit</p>
+			<p id=legal>2013 & MIT Licence -- PyKISSPlanet -- Mathieu (matael) Gaborit</p>
 		</footer>
 	</body>
 </html>

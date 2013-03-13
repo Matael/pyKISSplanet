@@ -89,8 +89,8 @@ class Fetcher:
                 else:
                     print("Link already present, skipping.")
 
-            # except:
-            #     print("Problem occured, skipping source : "+source_url)
+            except:
+                print("Problem occured, skipping source : "+source_url)
 
 
 def index(request):

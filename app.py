@@ -62,7 +62,6 @@ class Fetcher:
         for i in sources:
             if type(i) != str:
                 raise TypeError("sources must be strings")
-                return 1
 
         self.sourcelist = sources
 
@@ -71,24 +70,26 @@ class Fetcher:
 
         for source_url in self.sourcelist:
 
-            feed = fp.parse(source_url)
-            feed = feed['entries']
+            try:
 
-            for article in feed:
-                checksum = md5(article['title'].encode('utf8')+source_url).hexdigest()
+                feed = fp.parse(source_url)['entries']
 
-                if not Link.objects.filter(checksum=checksum):
+                for article in feed:
+                    checksum = md5(article['title'].encode('utf8')+source_url).hexdigest()
 
-                    l  = Link(
-                        source=source_url,
-                        title=article['title'].encode('utf8'),
-                        url=article['link'].encode('utf8'),
-                        checksum=checksum
-                    )
-                    l.save()
+                    if not Link.objects.filter(checksum=checksum):
 
-                else:
-                    print("Link already present, skipping.")
+                        l  = Link(
+                            source=source_url,
+                            title=article['title'].encode('utf8'),
+                            url=article['link'].encode('utf8'),
+                            summary=article['summary'].encode('utf8'),
+                            checksum=checksum
+                        )
+                        l.save()
+
+                    else:
+                        print("Link already present, skipping.")
 
             except:
                 print("Problem occured, skipping source : "+source_url)

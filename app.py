@@ -8,6 +8,7 @@ import mini_django
 mini_django.configure()
 
 from django.db import models
+from django.conf.urls import url
 from django.shortcuts import render_to_response, redirect
 import feedparser as fp
 from md5 import md5

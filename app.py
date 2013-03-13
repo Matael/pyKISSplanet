@@ -27,6 +27,7 @@ class Link(models.Model):
     title = models.CharField(max_length=200)
     url = models.CharField(max_length=300)
     source = models.CharField(max_length=300)
+    summary = models.TextField()
     checksum = models.CharField(max_length=300)
 
     def __unicode__(self):

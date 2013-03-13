@@ -8,6 +8,7 @@ import mini_django
 mini_django.configure()
 
 from django.db import models
+from django.conf.urls.static import static
 from django.conf.urls import url
 from django.shortcuts import render_to_response, redirect
 import feedparser as fp
@@ -126,6 +127,7 @@ def _get_list(filename='sourcelist'):
 urls = (
     url(r'^$', index, name="index"),
     url(r'^refresh/?$', refresh, name="refresh"),
+) + tuple(static('static/', document_root=mini_django.rel_path()+'/static/'))
 
 # -- run --
 

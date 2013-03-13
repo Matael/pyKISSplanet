@@ -123,9 +123,8 @@ def _get_list(filename='sourcelist'):
 
 
 urls = (
-    (r'^$', index),
-    (r'^refresh/?$', refresh),
-)
+    url(r'^$', index, name="index"),
+    url(r'^refresh/?$', refresh, name="refresh"),
 
 # -- run --
 
